@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 11:25:16 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/19 15:44:31 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/22 22:48:13 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ typedef struct s_game_resolution
 	int		map_width;
 	int		map_height;
 	char	*win_name;
-	char	*map_name;
 }	t_game_resolution;
 
 typedef struct s_coordinates
@@ -99,7 +98,6 @@ typedef struct s_game_ctl
 {
 	void				*mlx_ptr;
 	void				*win_ptr;
-	int					exit_status;
 	t_game_objs			g_objs;
 	t_game_objs_count	game_objs_count;
 	t_game_resolution	game_res;
@@ -146,5 +144,10 @@ int		ft_print_add(void *ptr);
 int		ft_printf(const char *format, ...);
 int		ft_exit_program(int x);
 int		ft_valid_path(t_game_ctl *game_cp);
+char	*ft_strchr(const char *s, int c);
+int		ft_count_objs(t_game_ctl *game_cp);
+int		ft_strange_objs(t_game_ctl *game_cp);
+int		ft_surr_walls(t_game_ctl *game_cp);
+int		ft_count_chars(char *str, char c);
 
 #endif

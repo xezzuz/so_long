@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 11:25:16 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/22 21:38:42 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/22 22:25:22 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ typedef struct s_game_resolution
 	int		map_width;
 	int		map_height;
 	char	*win_name;
-	char	*map_name;
 }	t_game_resolution;
 
 typedef struct s_coordinates
@@ -108,8 +107,6 @@ typedef struct s_game_ctl
 {
 	void				*mlx_ptr;
 	void				*win_ptr;
-	int					direction;
-	int					exit_status;
 	t_game_objs			g_objs;
 	t_game_objs_count	game_objs_count;
 	t_game_resolution	game_res;

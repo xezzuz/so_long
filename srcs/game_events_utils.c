@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 13:54:55 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/22 17:21:47 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/22 22:26:08 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_x_press(t_game_ctl *game_cp)
 {
-	game_cp->exit_status = game_cp->exit_status * 1;
+	game_cp->game_res.map_height += 0;
 	ft_exit_program(game_cp, 105);
 	return (1);
 }

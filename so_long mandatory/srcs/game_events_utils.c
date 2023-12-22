@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 13:54:55 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/19 17:38:06 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/22 22:30:30 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,9 @@ int	ft_refresh_matrix_2(t_game_ctl *game_cp, int x_new, int y_new)
 		game_cp->g_objs.p, x_new * SQ, y_new * SQ);
 	if (game_cp->m_data.matrix[game_cp->game_pos.p_pos.y]
 		[game_cp->game_pos.p_pos.x] == EXIT)
-	{
-		game_cp->m_data.matrix[game_cp->game_pos.p_pos.y]
-		[game_cp->game_pos.p_pos.x] = EXIT;
 		mlx_put_image_to_window(game_cp->mlx_ptr, game_cp->win_ptr,
 			game_cp->g_objs.exit_c, game_cp->game_pos.p_pos.x * SQ,
 			game_cp->game_pos.p_pos.y * SQ);
-	}
 	else
 	{
 		game_cp->m_data.matrix[game_cp->game_pos.p_pos.y]
@@ -46,21 +42,16 @@ int	ft_refresh_matrix(t_game_ctl *game_cp, int x_new, int y_new)
 		return (0);
 	ft_printf("Moves: %d\n", ++game_cp->game_objs_count.moves);
 	if (game_cp->m_data.matrix[y_new][x_new] == EXIT
-		&& game_cp->exit_status == 1)
-	{
-		mlx_destroy_window(game_cp->mlx_ptr, game_cp->win_ptr);
-		return (ft_exit_program(999));
-	}
+		&& game_cp->game_objs_count.collectibles == 0)
+		return (mlx_destroy_window(game_cp->mlx_ptr,
+				game_cp->win_ptr), ft_exit_program(999));
 	if (game_cp->m_data.matrix[y_new][x_new] == COLLECTIBLE)
 	{
 		game_cp->game_objs_count.collectibles--;
 		if (game_cp->game_objs_count.collectibles == 0)
-		{
-			game_cp->exit_status = 1;
 			mlx_put_image_to_window(game_cp->mlx_ptr, game_cp->win_ptr,
 				game_cp->g_objs.exit_o, game_cp->game_pos.e_pos.x * SQ,
 				game_cp->game_pos.e_pos.y * SQ);
-		}
 	}
 	return (ft_refresh_matrix_2(game_cp, x_new, y_new));
 }

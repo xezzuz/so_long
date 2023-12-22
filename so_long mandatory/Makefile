@@ -6,7 +6,7 @@
 #    By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/16 16:34:08 by nazouz            #+#    #+#              #
-#    Updated: 2023/12/19 15:43:52 by nazouz           ###   ########.fr        #
+#    Updated: 2023/12/22 22:45:50 by nazouz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRCS			=	\
 					./srcs/libft/ft_strdup.c \
 					./srcs/libft/ft_strlcpy.c \
 					./srcs/libft/ft_memcpy.c \
+					./srcs/libft/ft_strchr.c \
 					./srcs/ft_printf/ft_printf.c \
 					./srcs/ft_printf/ft_print_add.c \
 					./srcs/ft_printf/ft_printhex.c \
