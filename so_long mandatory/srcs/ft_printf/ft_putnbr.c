@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/22 17:53:38 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/22 22:13:13 by nazouz           ###   ########.fr       */
+/*   Created: 2023/11/08 12:44:19 by nazouz            #+#    #+#             */
+/*   Updated: 2023/12/17 14:01:36 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "../../includes/so_long.h"
 
-void	a(void)
+int	ft_putnbr(int n)
 {
-	system ("leaks a.out");
-	
-}
+	int		count;
 
-int	main(void)
-{
-	void	*mlx_ptr;
-
-	atexit(a);
-	mlx_ptr = mlx_init();
-	exit (0);
+	count = 0;
+	if (n == -2147483648)
+		return (write(1, "-2147483648", 11));
+	if (n < 0)
+	{
+		count += ft_putchar('-');
+		if (count == -1)
+			return (-1);
+		n = -n;
+	}
+	if (n < 10)
+	{
+		count += ft_putchar(n + 48);
+		return (count);
+	}
+	count += ft_putnbr(n / 10);
+	if (count < 0)
+		return (-1);
+	count += ft_putnbr(n % 10);
+	return (count);
 }
