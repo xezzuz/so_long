@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 16:06:16 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/23 21:48:44 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/24 00:51:45 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,10 +97,10 @@ int	ft_read_map(char *map_name, t_game_ctl *game_cp)
 	int			fd;
 
 	if (ft_check_map_x(map_name) == 0)
-		ft_exit_program(NULL, -1);
+		ft_exit_program(game_cp, -1);
 	fd = open (map_name, O_RDONLY);
 	if (fd == -1)
-		ft_exit_program(NULL, 2);
+		ft_exit_program(game_cp, 2);
 	game_cp->m_data.lines = ft_count_lines(map_name);
 	if (game_cp->m_data.lines < 3
 		|| game_cp->m_data.lines == 0)

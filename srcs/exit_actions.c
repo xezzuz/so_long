@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 14:19:58 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/23 21:56:55 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/24 00:53:01 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ int	ft_exit_program(t_game_ctl *game_cp, int x)
 		ft_you_won();
 	else if (x == -42)
 		ft_game_over();
-	mlx_destroy_window(game_cp->mlx_ptr, game_cp->win_ptr);
+	if (game_cp->mlx_ptr != NULL)
+		mlx_destroy_window(game_cp->mlx_ptr, game_cp->win_ptr);
 	exit(0);
 	return (1);
 }

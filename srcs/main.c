@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 11:01:39 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/24 00:07:53 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/24 00:53:37 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	ft_panel_init(t_game_ctl *game_cp)
 	game_cp->game_objs_count.moves = 0;
 	game_cp->game_objs_count.player = 0;
 	game_cp->m_data.matrix = NULL;
+	game_cp->mlx_ptr = NULL;
+	game_cp->win_ptr = NULL;
 }
 
 void	a(void)
@@ -57,7 +59,7 @@ int	main(int argc, char **argv)
 	int				fd;
 	t_game_ctl		game_cp;
 
-	atexit(a);
+	// atexit(a);
 	ft_panel_init(&game_cp);
 	ft_die_panel_init(&game_cp);
 	if (argc != 2)
