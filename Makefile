@@ -6,7 +6,7 @@
 #    By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/16 16:34:08 by nazouz            #+#    #+#              #
-#    Updated: 2023/12/23 14:06:22 by nazouz           ###   ########.fr        #
+#    Updated: 2023/12/23 22:45:08 by nazouz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,7 @@ SRCS			=	\
 					./srcs/exit_actions.c \
 					./srcs/free.c \
 					./srcs/animations.c \
+					./srcs/enemy_patrol.c \
 					./srcs/main.c
 
 OBJS			=	$(SRCS:.c=.o)

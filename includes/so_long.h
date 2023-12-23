@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 11:25:16 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/23 22:05:08 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/23 23:45:05 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # define BUFFER_SIZE 5
 # define NUM_DIE_FRAMES 11
+# define MAX_ENEMIES 6
 # define WALL '1'
 # define FLOOR '0'
 # define PLAYER 'P'
@@ -36,6 +37,14 @@
 # include <stdlib.h>
 # include <string.h>
 # include <stdarg.h>
+
+//	ENEMY
+typedef struct s_enemy
+{
+	int		x;  // Current position
+	int		y;
+	int 	dir_x; // Direction (1 for right, -1 for left)
+}	t_enemy;
 
 //	IMAGES
 typedef struct s_game_objs
@@ -66,6 +75,7 @@ typedef struct s_game_objs_count
 	int		collectibles;
 	int		moves;
 	int		exit;
+	int		enemies;
 }	t_game_objs_count;
 
 //	GAME RESOLUTION
@@ -102,6 +112,7 @@ typedef struct s_game_ctl
 {
 	void				*mlx_ptr;
 	void				*win_ptr;
+	t_enemy				enemies[MAX_ENEMIES];
 	t_game_objs			g_objs;
 	t_game_objs_count	game_objs_count;
 	t_game_resolution	game_res;
@@ -174,5 +185,8 @@ void	ft_image_check(t_game_ctl *game_cp, void **img, char *path);
 char	*ft_strchr(const char *s, int c);
 void	ft_init_die_frames(t_game_ctl *game_cp);
 void	ft_null_term_matrix(char **matrix);
+int 	ft_enemy_patrol(t_game_ctl *game_cp);
+void	ft_ghosts(t_game_ctl *game_cp);
+void	ft_enemy_dir_init(t_game_ctl *game_cp);
 
 #endif

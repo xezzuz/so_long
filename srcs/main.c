@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 11:01:39 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/23 22:20:00 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/24 00:07:53 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	ft_panel_init(t_game_ctl *game_cp)
 	game_cp->g_objs.p_u_c = NULL;
 	game_cp->g_objs.wall = NULL;
 	game_cp->game_objs_count.collectibles = 0;
+	game_cp->game_objs_count.enemies = 0;
 	game_cp->game_objs_count.exit = 0;
 	game_cp->game_objs_count.moves = 0;
 	game_cp->game_objs_count.player = 0;

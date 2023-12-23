@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 20:50:19 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/23 21:59:12 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/24 00:13:52 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,10 @@ int	ft_key_action(int key, t_game_ctl *game_cp)
 
 int	ft_events(t_game_ctl *game_cp)
 {
+	ft_enemy_dir_init(game_cp);
 	mlx_string_put(game_cp->mlx_ptr, game_cp->win_ptr,
 		7, 4, 0xFFFFFF, "Moves:0");
+	mlx_loop_hook(game_cp->mlx_ptr, ft_enemy_patrol, game_cp);
 	mlx_hook(game_cp->win_ptr, 17, 0, ft_x_press, game_cp);
 	mlx_hook(game_cp->win_ptr, 2, 0, ft_key_action, game_cp);
 	return (1);
