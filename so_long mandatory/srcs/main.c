@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 11:01:39 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/23 16:16:08 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/23 22:00:34 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main(int argc, char **argv)
 
 	ft_panel_init(&game_cp);
 	if (argc != 2)
-		return (ft_exit_program(-2));
+		return (ft_exit_program(2));
 	fd = open (argv[1], O_RDONLY);
 	if (fd == -1)
 		return (ft_exit_program(2), 0);

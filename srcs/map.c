@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 16:06:16 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/23 18:53:40 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/23 21:48:44 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,10 @@ int	ft_read_and_stock(int fd, t_game_ctl *game_cp)
 			close(fd);
 			break ;
 		}
-		game_cp->m_data.matrix[i] = buffer;
-		if (i != game_cp->m_data.lines - 1)
-			game_cp->m_data.matrix[i][ft_strlen(buffer) - 1] = '\0';
-		i++;
+		game_cp->m_data.matrix[i++] = buffer;
 	}
 	game_cp->m_data.matrix[i] = NULL;
+	ft_null_term_matrix(game_cp->m_data.matrix);
 	ft_is_valid_map(game_cp);
 	return (1);
 }

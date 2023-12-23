@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 20:50:19 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/22 21:28:00 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/23 21:59:12 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,7 @@ int	ft_key_action(int key, t_game_ctl *game_cp)
 	else if (key == LEFT)
 		i = ft_move_left(game_cp, i);
 	else if (key == ESC)
-	{
-		mlx_destroy_window(game_cp->mlx_ptr, game_cp->win_ptr);
-		return (ft_exit_program(game_cp, 105));
-	}
+		ft_exit_program(game_cp, 105);
 	return (1);
 }
 

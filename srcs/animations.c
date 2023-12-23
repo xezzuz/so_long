@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 17:02:01 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/23 17:51:47 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/23 21:59:54 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	ft_init_die_frames(t_game_ctl *game_cp)
 	while (i < NUM_DIE_FRAMES)
 		game_cp->g_objs.p_die_frames[i++] = NULL;
 	ft_fill_die_frames(game_cp);
-	i = 0;
 }
 
 void	ft_display_die_frame(t_game_ctl *game_cp, int frame)

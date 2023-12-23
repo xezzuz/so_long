@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 11:25:16 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/23 17:50:55 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/23 22:05:08 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,5 +173,6 @@ void	ft_anim_image_init(t_game_ctl *game_cp);
 void	ft_image_check(t_game_ctl *game_cp, void **img, char *path);
 char	*ft_strchr(const char *s, int c);
 void	ft_init_die_frames(t_game_ctl *game_cp);
+void	ft_null_term_matrix(char **matrix);
 
 #endif

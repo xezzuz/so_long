@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 14:19:58 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/23 12:41:48 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/23 22:00:44 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ int	ft_exit_program(int x)
 {
 	if (x == -3)
 		ft_printf("ERROR: MAP IS NOT VALID :(\n");
-	else if (x == -2)
-		ft_printf("ERROR: MAP FILE IS MISSING :(\n");
 	else if (x == -1)
 		ft_printf("ERROR: MAP FILE EXTENSION IS NOT VALID :(\n");
 	else if (x == 1)
@@ -30,6 +28,6 @@ int	ft_exit_program(int x)
 		ft_printf("IS THIS GAME HARD? IQ < 0? XD\n");
 	else if (x == 999)
 		ft_printf("YOU WON! CONGRATULATIONS :)\n");
-	exit(x);
+	exit(0);
 	return (1);
 }

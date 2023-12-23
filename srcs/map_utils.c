@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 16:15:41 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/23 18:54:12 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/23 21:48:33 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,7 @@ int	ft_rows(t_game_ctl *game_cp)
 	while (game_cp->m_data.matrix[i])
 	{
 		row_len = 0;
-		while (game_cp->m_data.matrix[i][row_len])
-		{
-			printf("[%d]", game_cp->m_data.matrix[i][row_len]);
-			row_len++;
-		}
-		printf("[%d]", game_cp->m_data.matrix[i][row_len]);
-		// row_len = ft_strlen(game_cp->m_data.matrix[0]);
-		printf("\nrow_len[%d] = %d\n", i, row_len);
+		row_len = ft_strlen(game_cp->m_data.matrix[0]);
 		if (row_len != game_cp->m_data.matrix_columns)
 			return (game_cp->m_data.matrix_rows = 0, 0);
 		i++;
@@ -61,4 +54,23 @@ int	ft_rows(t_game_ctl *game_cp)
 	game_cp->m_data.matrix_rows = i;
 	game_cp->game_res.map_height = i * 32;
 	return (i);
+}
+
+void	ft_null_term_matrix(char **matrix)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	while (matrix[i])
+	{
+		j = 0;
+		while (matrix[i][j])
+		{
+			if (matrix[i][j] == '\n')
+				matrix[i][j] = '\0';
+			j++;
+		}
+		i++;
+	}
 }

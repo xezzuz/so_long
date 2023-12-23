@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 11:25:16 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/23 16:15:57 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/23 21:23:07 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,5 +144,6 @@ int		ft_count_objs(t_game_ctl *game_cp);
 int		ft_strange_objs(t_game_ctl *game_cp);
 int		ft_surr_walls(t_game_ctl *game_cp);
 int		ft_count_chars(char *str, char c);
+void	ft_null_term_matrix(char **matrix);
 
 #endif
