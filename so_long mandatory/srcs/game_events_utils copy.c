@@ -6,16 +6,29 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 13:54:55 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/23 12:41:12 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/23 12:37:28 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
+void	print_matrix(char **matrix)
+{
+	int		i;
+
+	i = 0;
+	while (matrix[i])
+	{
+		printf("%s\n", matrix[i]);
+		i++;
+	}
+	printf("*******************\n");
+}
+
 int	ft_refresh_matrix_2(t_game_ctl *game_cp, int x_new, int y_new)
 {
-	if (game_cp->m_data.matrix[y_new][x_new] != EXIT)
-		game_cp->m_data.matrix[y_new][x_new] = PLAYER;
+	// if (game_cp->m_data.matrix[y_new][x_new] != EXIT)
+	// 	game_cp->m_data.matrix[y_new][x_new] = PLAYER;
 	mlx_put_image_to_window(game_cp->mlx_ptr, game_cp->win_ptr,
 		game_cp->g_objs.p, x_new * SQ, y_new * SQ);
 	if (game_cp->m_data.matrix[game_cp->game_pos.p_pos.y]
@@ -33,6 +46,7 @@ int	ft_refresh_matrix_2(t_game_ctl *game_cp, int x_new, int y_new)
 	}
 	game_cp->game_pos.p_pos.x = x_new;
 	game_cp->game_pos.p_pos.y = y_new;
+	print_matrix(game_cp->m_data.matrix);
 	return (1);
 }
 
