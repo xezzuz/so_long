@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 13:54:55 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/22 22:26:08 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/23 17:33:42 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_put_moves(t_game_ctl *game_cp)
 
 void	ft_ghosts(t_game_ctl *game_cp)
 {
-	ft_initialize_die_frames(game_cp);
+	ft_init_die_frames(game_cp);
 	ft_animate_die(game_cp);
 	mlx_destroy_window(game_cp->mlx_ptr, game_cp->win_ptr);
 	ft_exit_program(game_cp, -42);
@@ -74,8 +74,8 @@ int	ft_refresh_matrix(t_game_ctl *game_cp, int x_new, int y_new)
 	ft_put_moves(game_cp);
 	if (game_cp->m_data.matrix[y_new][x_new] == EXIT
 		&& game_cp->game_objs_count.collectibles == 0)
-		return (mlx_destroy_window(game_cp->mlx_ptr,
-				game_cp->win_ptr), ft_exit_program(game_cp, 0));
+		return (ft_exit_program(game_cp, 0));
+		//mlx_destroy_window(game_cp->mlx_ptr, game_cp->win_ptr), 
 	if (game_cp->m_data.matrix[y_new][x_new] == COLLECTIBLE)
 	{
 		game_cp->game_objs_count.collectibles--;

@@ -6,7 +6,7 @@
 #    By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/16 16:34:08 by nazouz            #+#    #+#              #
-#    Updated: 2023/12/22 22:45:50 by nazouz           ###   ########.fr        #
+#    Updated: 2023/12/23 15:49:03 by nazouz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME			=	so_long
 
 CC				=	cc
 
-CFLAGS			=	-Wall -Wextra -Werror -g
+CFLAGS			=	-Wall -Wextra -Werror -g3
 
 MLXFLAGS		=	-lmlx -framework OpenGL -framework AppKit
 

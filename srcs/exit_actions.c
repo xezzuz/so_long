@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 14:19:58 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/23 12:42:45 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/23 17:15:32 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ void	ft_game_over(void)
 	ft_printf("░╚═════╝░╚═╝░░╚═╝╚═╝░░░░░╚═╝╚══════╝");
 	ft_printf("  ░╚════╝░░░░╚═╝░░░╚══════╝╚═╝░░╚═╝\n\n\n");
 }
-	// if (game_cp != NULL)
-	// 	ft_free_imgs(game_cp);
 
 int	ft_exit_program(t_game_ctl *game_cp, int x)
 {
-	if (game_cp != NULL)
+	// mlx_ptr - win_ptr
+	if (game_cp->m_data.matrix)
 		ft_free_map(&game_cp->m_data.matrix);
+	ft_free_imgs(game_cp);
 	if (x == -3)
 		ft_printf("ERROR: MAP IS NOT VALID :(\n");
 	else if (x == -2)

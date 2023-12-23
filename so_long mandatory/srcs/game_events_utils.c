@@ -6,11 +6,18 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 13:54:55 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/23 12:41:12 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/23 16:28:28 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+int	ft_x_press(t_game_ctl *game_cp)
+{
+	game_cp->game_res.map_height += 0;
+	ft_exit_program(105);
+	return (1);
+}
 
 int	ft_refresh_matrix_2(t_game_ctl *game_cp, int x_new, int y_new)
 {

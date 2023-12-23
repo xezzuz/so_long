@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 12:27:38 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/22 22:25:30 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/23 16:16:43 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,12 @@ int	ft_game_init(t_game_ctl *game_cp)
 	int		i;
 	int		j;
 
-	game_cp->game_res.win_name = "PACBOY";
 	game_cp->mlx_ptr = mlx_init();
 	if (!game_cp->mlx_ptr)
 		ft_exit_program(game_cp, 1);
 	game_cp->win_ptr
 		= mlx_new_window(game_cp->mlx_ptr, game_cp->game_res.map_width,
-			game_cp->game_res.map_height, game_cp->game_res.win_name);
+			game_cp->game_res.map_height, "PACMAN");
 	if (!game_cp->win_ptr)
 		ft_exit_program(game_cp, 1);
 	ft_image_init(game_cp);

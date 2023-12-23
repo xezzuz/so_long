@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 11:25:16 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/22 22:48:13 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/23 16:15:57 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ typedef struct s_game_objs
 	void	*collectible;
 	void	*exit_c;
 	void	*exit_o;
-	int		img_width;
-	int		img_height;
 }	t_game_objs;
 
 //	OBJECTS COUNT
@@ -57,8 +55,6 @@ typedef struct s_game_objs_count
 {
 	int		player;
 	int		collectibles;
-	int		wall;
-	int		floor;
 	int		moves;
 	int		exit;
 }	t_game_objs_count;
@@ -68,7 +64,6 @@ typedef struct s_game_resolution
 {
 	int		map_width;
 	int		map_height;
-	char	*win_name;
 }	t_game_resolution;
 
 typedef struct s_coordinates

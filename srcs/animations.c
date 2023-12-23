@@ -6,39 +6,36 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 17:02:01 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/22 20:24:03 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/23 17:51:47 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	ft_initialize_die_frames(t_game_ctl *game_cp)
+void	ft_fill_die_frames(t_game_ctl *game_cp)
 {
-	int	d1;
-	int	d2;
+	ft_image_check(game_cp, &game_cp->g_objs.p_die_frames[0], "./txts/D1.xpm");
+	ft_image_check(game_cp, &game_cp->g_objs.p_die_frames[1], "./txts/D2.xpm");
+	ft_image_check(game_cp, &game_cp->g_objs.p_die_frames[2], "./txts/D3.xpm");
+	ft_image_check(game_cp, &game_cp->g_objs.p_die_frames[3], "./txts/D4.xpm");
+	ft_image_check(game_cp, &game_cp->g_objs.p_die_frames[4], "./txts/D5.xpm");
+	ft_image_check(game_cp, &game_cp->g_objs.p_die_frames[5], "./txts/D6.xpm");
+	ft_image_check(game_cp, &game_cp->g_objs.p_die_frames[6], "./txts/D7.xpm");
+	ft_image_check(game_cp, &game_cp->g_objs.p_die_frames[7], "./txts/D8.xpm");
+	ft_image_check(game_cp, &game_cp->g_objs.p_die_frames[8], "./txts/D9.xpm");
+	ft_image_check(game_cp, &game_cp->g_objs.p_die_frames[9], "./txts/D10.xpm");
+	ft_image_check(game_cp, &game_cp->g_objs.p_die_frames[10], "./txts/D11.xpm");
+}
 
-	game_cp->g_objs.p_die_frames[0]
-		= mlx_xpm_file_to_image(game_cp->mlx_ptr, "./txts/D1.xpm", &d1, &d2);
-	game_cp->g_objs.p_die_frames[1]
-		= mlx_xpm_file_to_image(game_cp->mlx_ptr, "./txts/D2.xpm", &d1, &d2);
-	game_cp->g_objs.p_die_frames[2]
-		= mlx_xpm_file_to_image(game_cp->mlx_ptr, "./txts/D3.xpm", &d1, &d2);
-	game_cp->g_objs.p_die_frames[3]
-		= mlx_xpm_file_to_image(game_cp->mlx_ptr, "./txts/D4.xpm", &d1, &d2);
-	game_cp->g_objs.p_die_frames[4]
-		= mlx_xpm_file_to_image(game_cp->mlx_ptr, "./txts/D5.xpm", &d1, &d2);
-	game_cp->g_objs.p_die_frames[5]
-		= mlx_xpm_file_to_image(game_cp->mlx_ptr, "./txts/D6.xpm", &d1, &d2);
-	game_cp->g_objs.p_die_frames[6]
-		= mlx_xpm_file_to_image(game_cp->mlx_ptr, "./txts/D7.xpm", &d1, &d2);
-	game_cp->g_objs.p_die_frames[7]
-		= mlx_xpm_file_to_image(game_cp->mlx_ptr, "./txts/D8.xpm", &d1, &d2);
-	game_cp->g_objs.p_die_frames[8]
-		= mlx_xpm_file_to_image(game_cp->mlx_ptr, "./txts/D9.xpm", &d1, &d2);
-	game_cp->g_objs.p_die_frames[9]
-		= mlx_xpm_file_to_image(game_cp->mlx_ptr, "./txts/D10.xpm", &d1, &d2);
-	game_cp->g_objs.p_die_frames[10]
-		= mlx_xpm_file_to_image(game_cp->mlx_ptr, "./txts/D11.xpm", &d1, &d2);
+void	ft_init_die_frames(t_game_ctl *game_cp)
+{
+	int		i;
+
+	i = 0;
+	while (i < NUM_DIE_FRAMES)
+		game_cp->g_objs.p_die_frames[i++] = NULL;
+	ft_fill_die_frames(game_cp);
+	i = 0;
 }
 
 void	ft_display_die_frame(t_game_ctl *game_cp, int frame)

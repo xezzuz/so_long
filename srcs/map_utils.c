@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 16:15:41 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/21 23:24:42 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/23 18:54:12 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,15 @@ int	ft_rows(t_game_ctl *game_cp)
 	i = 0;
 	while (game_cp->m_data.matrix[i])
 	{
-		row_len = ft_strlen(game_cp->m_data.matrix[i]);
+		row_len = 0;
+		while (game_cp->m_data.matrix[i][row_len])
+		{
+			printf("[%d]", game_cp->m_data.matrix[i][row_len]);
+			row_len++;
+		}
+		printf("[%d]", game_cp->m_data.matrix[i][row_len]);
+		// row_len = ft_strlen(game_cp->m_data.matrix[0]);
+		printf("\nrow_len[%d] = %d\n", i, row_len);
 		if (row_len != game_cp->m_data.matrix_columns)
 			return (game_cp->m_data.matrix_rows = 0, 0);
 		i++;

@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 16:06:16 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/22 21:39:50 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/23 18:53:40 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,10 @@ int	ft_read_and_stock(int fd, t_game_ctl *game_cp)
 	{
 		buffer = get_next_line(fd);
 		if (!buffer)
+		{
+			close(fd);
 			break ;
+		}
 		game_cp->m_data.matrix[i] = buffer;
 		if (i != game_cp->m_data.lines - 1)
 			game_cp->m_data.matrix[i][ft_strlen(buffer) - 1] = '\0';
@@ -103,9 +106,7 @@ int	ft_read_map(char *map_name, t_game_ctl *game_cp)
 	game_cp->m_data.lines = ft_count_lines(map_name);
 	if (game_cp->m_data.lines < 3
 		|| game_cp->m_data.lines == 0)
-	{
 		ft_exit_program(game_cp, -3);
-	}
 	ft_read_and_stock(fd, game_cp);
 	return (close (fd), 1);
 }

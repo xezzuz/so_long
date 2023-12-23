@@ -6,18 +6,11 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 20:50:19 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/23 10:48:25 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/23 16:28:22 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-
-int	ft_x_press(t_game_ctl *game_cp)
-{
-	game_cp->game_res.map_height += 0;
-	ft_exit_program(105);
-	return (1);
-}
 
 int	ft_key_action(int key, t_game_ctl *game_cp)
 {

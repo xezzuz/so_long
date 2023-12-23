@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_start_2.c                                     :+:      :+:    :+:   */
+/*   game_start_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 16:53:04 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/22 17:01:15 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/23 13:22:02 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ void	ft_anim_image_init(t_game_ctl *game_cp)
 		"./txts/P_C.xpm");
 	ft_image_check(game_cp, &game_cp->g_objs.p_u_c,
 		"./txts/P_U_C.xpm");
-	ft_image_check(game_cp, &game_cp->g_objs.p_d_c,
-		"./txts/P_D_C.xpm");
 	ft_image_check(game_cp, &game_cp->g_objs.p_l_c,
 		"./txts/P_L_C.xpm");
+	ft_image_check(game_cp, &game_cp->g_objs.p_d_c,
+		"./txts/P_D_C.xpm");
 }
