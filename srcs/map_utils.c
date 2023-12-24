@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 16:15:41 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/24 13:40:52 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/24 14:00:11 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ int	ft_rows(t_game_ctl *game_cp)
 	int		row_len;
 
 	i = 0;
+	row_len = 0;
 	while (game_cp->m_data.matrix[i])
 	{
-		row_len = 0;
 		row_len = ft_strlen(game_cp->m_data.matrix[i]);
 		if (row_len != game_cp->m_data.matrix_columns)
 			return (game_cp->m_data.matrix_rows = 0, 0);

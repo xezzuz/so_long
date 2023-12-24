@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 15:23:13 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/22 22:44:47 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/24 14:18:29 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ char	**ft_duplicate_matrix(t_game_ctl *game_cp, char **matrix_cpy)
 	i = 0;
 	matrix_cpy = malloc((game_cp->m_data.matrix_rows + 1) * sizeof(char *));
 	if (!matrix_cpy)
-		ft_exit_program(1);
+		ft_exit_program(game_cp, 1);
 	while (i < game_cp->m_data.matrix_rows)
 	{
 		matrix_cpy[i] = malloc(game_cp->m_data.matrix_columns);
@@ -106,6 +106,6 @@ int	ft_valid_path(t_game_ctl *game_cp)
 	matrix_cpy = ft_duplicate_matrix(game_cp, matrix_cpy);
 	ft_flood_fill_e_c(&matrix_cpy, game_cp, p_pos_y, p_pos_x);
 	if (!ft_check_e_c(matrix_cpy, game_cp))
-		return (ft_exit_program(3), 0); // ft_free_map
-	return (1); // ft_free_map
+		return (ft_free_map(&matrix_cpy), ft_exit_program(game_cp, 3));
+	return (ft_free_map(&matrix_cpy), 1);
 }

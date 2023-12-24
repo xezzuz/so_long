@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 12:27:38 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/23 16:14:57 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/24 14:18:58 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_image_check(t_game_ctl *game_cp, void **img, char *path)
 
 	*img = mlx_xpm_file_to_image(game_cp->mlx_ptr, path, &d1, &d2);
 	if (*img == NULL)
-		ft_exit_program(1);
+		ft_exit_program(game_cp, 1);
 }
 
 void	ft_image_init(t_game_ctl *game_cp)
@@ -72,10 +72,12 @@ int	ft_game_init(t_game_ctl *game_cp)
 
 	game_cp->mlx_ptr = mlx_init();
 	if (!game_cp->mlx_ptr)
-		ft_exit_program(1);
+		ft_exit_program(game_cp, 1);
 	game_cp->win_ptr
 		= mlx_new_window(game_cp->mlx_ptr, game_cp->game_res.map_width,
 			game_cp->game_res.map_height, "PACMAN");
+	if (!game_cp->win_ptr)
+		ft_exit_program(game_cp, 1);
 	ft_image_init(game_cp);
 	i = 0;
 	while (i < game_cp->m_data.matrix_rows)

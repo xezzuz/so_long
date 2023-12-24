@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 11:25:16 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/23 21:23:07 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/24 14:19:17 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,27 @@
 # define SO_LONG_H
 
 # define BUFFER_SIZE 5
+# define SQ 32
+
+//	OBJECTS
 # define WALL '1'
 # define FLOOR '0'
 # define PLAYER 'P'
 # define COLLECTIBLE 'C'
 # define EXIT 'E'
+
+//	KEYS
 # define LEFT 123
 # define RIGHT 124
 # define DOWN 125
 # define UP 126
 # define ESC 53
-# define SQ 32
+# define W 13
+# define A 0
+# define S 1
+# define D 2
 
-# include "mlx.h"
+# include <mlx.h>
 # include <unistd.h>
 # include <limits.h>
 # include <stdio.h>
@@ -35,7 +43,6 @@
 # include <string.h>
 # include <stdarg.h>
 
-//	IMAGES
 typedef struct s_game_objs
 {
 	void	*p;
@@ -50,7 +57,6 @@ typedef struct s_game_objs
 	void	*exit_o;
 }	t_game_objs;
 
-//	OBJECTS COUNT
 typedef struct s_game_objs_count
 {
 	int		player;
@@ -59,7 +65,6 @@ typedef struct s_game_objs_count
 	int		exit;
 }	t_game_objs_count;
 
-//	GAME RESOLUTION
 typedef struct s_game_resolution
 {
 	int		map_width;
@@ -72,14 +77,12 @@ typedef struct s_coordinates
 	int		y;
 }	t_coordinates;
 
-//	PLAYER & EXIT POSITION
 typedef struct s_game_position
 {
 	t_coordinates	p_pos;
 	t_coordinates	e_pos;
 }	t_game_position;
 
-//	MATRIX DATA
 typedef struct s_matrix_data
 {
 	int					lines;
@@ -88,7 +91,6 @@ typedef struct s_matrix_data
 	char				**matrix;
 }	t_matrix_data;
 
-//	GAME CONTROL CENTER
 typedef struct s_game_ctl
 {
 	void				*mlx_ptr;
@@ -104,7 +106,7 @@ int		main(int argc, char **argv);
 void	ft_panel_init(t_game_ctl *game_cp);
 int		ft_read_map(char *map_name, t_game_ctl *game_cp);
 int		ft_check_map_x(char *map_name);
-int		ft_count_lines(char *map_name);
+int		ft_count_lines(int fd);
 int		ft_read_and_stock(int fd, t_game_ctl *game_cp);
 int		ft_is_valid_map(t_game_ctl *game_cp);
 int		ft_map_objs(t_game_ctl *game_cp);
@@ -137,7 +139,7 @@ int		ft_printhex(unsigned int n, char *hex);
 int		ft_printu(unsigned int n);
 int		ft_print_add(void *ptr);
 int		ft_printf(const char *format, ...);
-int		ft_exit_program(int x);
+int	ft_exit_program(t_game_ctl *game_cp, int x);
 int		ft_valid_path(t_game_ctl *game_cp);
 char	*ft_strchr(const char *s, int c);
 int		ft_count_objs(t_game_ctl *game_cp);
@@ -145,5 +147,8 @@ int		ft_strange_objs(t_game_ctl *game_cp);
 int		ft_surr_walls(t_game_ctl *game_cp);
 int		ft_count_chars(char *str, char c);
 void	ft_null_term_matrix(char **matrix);
+int		ft_x_press(t_game_ctl *game_cp);
+void	ft_free_map(char ***matrix);
+void	ft_free_imgs(t_game_ctl *game_cp);
 
 #endif

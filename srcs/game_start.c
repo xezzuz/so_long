@@ -6,13 +6,13 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 12:27:38 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/23 16:16:43 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/24 14:06:34 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	ft_put_image(t_game_ctl *game_cp, int i, int j)
+void	ft_put_image(t_game_ctl *game_cp, int i, int j)
 {
 	if (game_cp->m_data.matrix[i][j] == PLAYER)
 		mlx_put_image_to_window(game_cp->mlx_ptr, game_cp->win_ptr,
@@ -32,7 +32,6 @@ int	ft_put_image(t_game_ctl *game_cp, int i, int j)
 	else if (game_cp->m_data.matrix[i][j] == COLLECTIBLE)
 		mlx_put_image_to_window(game_cp->mlx_ptr, game_cp->win_ptr,
 			game_cp->g_objs.collectible, j * SQ, i * SQ);
-	return (0);
 }
 
 int	ft_game_init(t_game_ctl *game_cp)

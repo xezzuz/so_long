@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 11:25:16 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/24 13:43:53 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/24 13:53:16 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 # define S 1
 # define D 2
 
-# include "mlx.h"
+# include <mlx.h>
 # include <unistd.h>
 # include <time.h>
 # include <limits.h>
