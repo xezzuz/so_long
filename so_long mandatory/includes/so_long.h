@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 11:25:16 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/24 14:19:17 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/24 14:31:47 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,8 @@
 # include <mlx.h>
 # include <unistd.h>
 # include <limits.h>
-# include <stdio.h>
 # include <fcntl.h>
 # include <stdlib.h>
-# include <string.h>
 # include <stdarg.h>
 
 typedef struct s_game_objs
@@ -103,15 +101,8 @@ typedef struct s_game_ctl
 }	t_game_ctl;
 
 int		main(int argc, char **argv);
-void	ft_panel_init(t_game_ctl *game_cp);
 int		ft_read_map(char *map_name, t_game_ctl *game_cp);
-int		ft_check_map_x(char *map_name);
-int		ft_count_lines(int fd);
-int		ft_read_and_stock(int fd, t_game_ctl *game_cp);
-int		ft_is_valid_map(t_game_ctl *game_cp);
 int		ft_map_objs(t_game_ctl *game_cp);
-int		ft_valid_objs(t_game_ctl *game_cp);
-int		ft_valid_objs_2(t_game_ctl *game_cp);
 int		ft_map_dimensions(t_game_ctl *game_cp);
 int		ft_columns(t_game_ctl *game_cp);
 int		ft_rows(t_game_ctl *game_cp);
@@ -120,10 +111,17 @@ int		ft_start_game(t_game_ctl *game_cp);
 int		ft_events(t_game_ctl *game_cp);
 void	ft_image_init(t_game_ctl *game_cp);
 int		ft_refresh_matrix(t_game_ctl *game_cp, int x_new, int y_new);
-int		ft_refresh_matrix_2(t_game_ctl *game_cp, int x_new, int y_new);
-char	*read_buff(int fd, char **buffer);
-int		check_nl(char (*buffer));
-void	ft_bzero(void *s, size_t n);
+int		ft_exit_program(t_game_ctl *game_cp, int x);
+int		ft_valid_path(t_game_ctl *game_cp);
+int		ft_x_press(t_game_ctl *game_cp);
+void	ft_free_map(char ***matrix);
+void	ft_free_imgs(t_game_ctl *game_cp);
+int		ft_count_objs(t_game_ctl *game_cp);
+int		ft_strange_objs(t_game_ctl *game_cp);
+int		ft_count_chars(char *str, char c);
+void	ft_null_term_matrix(char **matrix);
+
+//	LIBFT
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 size_t	ft_strlen(const char *s);
@@ -131,7 +129,12 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char	*ft_strdup(const char *s1);
 char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strchr(const char *s, int c);
+
+//	GET_NEX_LINE
 char	*get_next_line(int fd);
+
+//	PRINTF
 int		ft_putchar(int c);
 int		ft_putstr(char *str);
 int		ft_putnbr(int n);
@@ -139,16 +142,5 @@ int		ft_printhex(unsigned int n, char *hex);
 int		ft_printu(unsigned int n);
 int		ft_print_add(void *ptr);
 int		ft_printf(const char *format, ...);
-int	ft_exit_program(t_game_ctl *game_cp, int x);
-int		ft_valid_path(t_game_ctl *game_cp);
-char	*ft_strchr(const char *s, int c);
-int		ft_count_objs(t_game_ctl *game_cp);
-int		ft_strange_objs(t_game_ctl *game_cp);
-int		ft_surr_walls(t_game_ctl *game_cp);
-int		ft_count_chars(char *str, char c);
-void	ft_null_term_matrix(char **matrix);
-int		ft_x_press(t_game_ctl *game_cp);
-void	ft_free_map(char ***matrix);
-void	ft_free_imgs(t_game_ctl *game_cp);
 
 #endif

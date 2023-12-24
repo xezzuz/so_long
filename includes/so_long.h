@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 11:25:16 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/24 13:53:16 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/24 14:31:26 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,6 +175,5 @@ int		ft_printhex(unsigned int n, char *hex);
 int		ft_printu(unsigned int n);
 int		ft_print_add(void *ptr);
 int		ft_printf(const char *format, ...);
-
 
 #endif
