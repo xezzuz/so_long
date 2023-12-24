@@ -6,13 +6,12 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 16:15:41 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/24 11:07:36 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/24 13:40:52 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-// CALCULATE MATRIX DIMENSIONS + CHECKS IF THE MAP IS RECTANGULAR
 int	ft_map_dimensions(t_game_ctl *game_cp)
 {
 	if (!ft_columns(game_cp))
@@ -24,7 +23,6 @@ int	ft_map_dimensions(t_game_ctl *game_cp)
 	return (1);
 }
 
-// CALCULATES MATRIX COLUMNS
 int	ft_columns(t_game_ctl *game_cp)
 {
 	int		columns_index;
@@ -38,7 +36,6 @@ int	ft_columns(t_game_ctl *game_cp)
 	return (columns_index);
 }
 
-// CALCULATE MATRIX ROWS + CHECKS IF THE MAP IS RECTANGULAR
 int	ft_rows(t_game_ctl *game_cp)
 {
 	int		i;

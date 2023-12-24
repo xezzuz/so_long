@@ -6,15 +6,11 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 22:35:35 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/24 11:35:14 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/24 13:24:26 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
-
-#include <time.h>
-
-static long		g_last_move_time = 0;
 
 void	ft_enemy_dir_init(t_game_ctl *game_cp)
 {
@@ -57,7 +53,6 @@ void	ft_move_enemy(t_game_ctl *game_cp, t_enemy *enemy)
 		game_cp->m_data.matrix[y_pos][n_x_pos] = GHOST;
 		mlx_put_image_to_window(game_cp->mlx_ptr, game_cp->win_ptr,
 			game_cp->g_objs.ghost, n_x_pos * SQ, y_pos * SQ);
-		x_pos = n_x_pos;
 	}
 	else if (game_cp->m_data.matrix[y_pos][n_x_pos] == PLAYER)
 		ft_ghosts(game_cp);
@@ -92,12 +87,12 @@ void	ft_locate_enemy(t_game_ctl *game_cp)
 
 int	ft_enemy_patrol(t_game_ctl *game_cp)
 {
-	int			i;
-	long		current_time;
+	int					i;
+	unsigned long		current_time;
 
 	current_time = clock();
 	i = 0;
-	if (current_time - g_last_move_time >= 50000)
+	if (current_time - game_cp->last_mv_time >= 70000)
 	{
 		ft_locate_enemy(game_cp);
 		while (i < game_cp->game_objs_count.enemies)
@@ -105,7 +100,7 @@ int	ft_enemy_patrol(t_game_ctl *game_cp)
 			ft_move_enemy(game_cp, &game_cp->enemies[i]);
 			i++;
 		}
-		g_last_move_time = current_time;
+		game_cp->last_mv_time = current_time;
 	}
 	return (0);
 }

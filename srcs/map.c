@@ -6,13 +6,12 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 16:06:16 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/24 11:43:12 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/24 13:41:05 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-// CHECKS IF THE MAP DIMENSION, SHAPE, CHARACTERS ARE VALID
 int	ft_is_valid_map(t_game_ctl *game_cp)
 {
 	if (!game_cp->m_data.matrix[0]
@@ -24,7 +23,6 @@ int	ft_is_valid_map(t_game_ctl *game_cp)
 	return (1);
 }
 
-// COUNTS HOW MANY LINES THE MAP CONTAINS
 int	ft_count_lines(int fd)
 {
 	char	*line;
@@ -43,7 +41,6 @@ int	ft_count_lines(int fd)
 	return (lines + 1);
 }
 
-// CHECKS IF THE MAP FILE EXTENSION IS .BER
 int	ft_check_map_x(char *map_name)
 {
 	int		len;

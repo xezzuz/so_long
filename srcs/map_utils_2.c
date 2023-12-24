@@ -6,13 +6,12 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 16:19:09 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/24 10:39:07 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/24 13:41:19 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-// CHECKS IF THE MAP IS VALID BY CHECKING MAP WALLS AND CHARACTERS
 int	ft_map_objs(t_game_ctl *game_cp)
 {
 	if (ft_count_objs(game_cp) && ft_strange_objs(game_cp)
@@ -83,7 +82,6 @@ int	ft_strange_objs(t_game_ctl *game_cp)
 	return (1);
 }
 
-// CHECKS IF THE MAP IS SURROUNDED BY WALLS
 int	ft_surr_walls(t_game_ctl *game_cp)
 {
 	int		i;
