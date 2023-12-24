@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 16:06:16 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/24 00:51:45 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/24 11:43:12 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,30 +25,22 @@ int	ft_is_valid_map(t_game_ctl *game_cp)
 }
 
 // COUNTS HOW MANY LINES THE MAP CONTAINS
-int	ft_count_lines(char *map_name)
+int	ft_count_lines(int fd)
 {
-	int		fd;
-	int		i;
-	char	line[1024];
+	char	*line;
 	int		lines;
 
-	fd = open (map_name, O_RDONLY);
-	if (fd == -1)
-		ft_exit_program(NULL, 2);
-	lines = 1;
-	while (read(fd, line, 1024) > 0)
+	lines = 0;
+	line = ft_calloc(2, 1);
+	while (read(fd, line, 1) > 0)
 	{
-		i = 0;
-		while (line[i])
-		{
-			if (line [i] == '\n')
-				lines++;
-			line[i] = '\0';
-			i++;
-		}
+		if (line [0] == '\n')
+			lines++;
+		line[0] = '\0';
 	}
-	close(fd);
-	return (lines);
+	free (line);
+	close (fd);
+	return (lines + 1);
 }
 
 // CHECKS IF THE MAP FILE EXTENSION IS .BER
@@ -73,7 +65,7 @@ int	ft_read_and_stock(int fd, t_game_ctl *game_cp)
 
 	i = 0;
 	game_cp->m_data.matrix
-		= ft_calloc(game_cp->m_data.lines + 1, sizeof(char *));
+		= malloc((game_cp->m_data.lines + 1) * sizeof(char *));
 	if (!game_cp->m_data.matrix)
 		ft_exit_program(game_cp, 1);
 	while (1)
@@ -101,10 +93,12 @@ int	ft_read_map(char *map_name, t_game_ctl *game_cp)
 	fd = open (map_name, O_RDONLY);
 	if (fd == -1)
 		ft_exit_program(game_cp, 2);
-	game_cp->m_data.lines = ft_count_lines(map_name);
-	if (game_cp->m_data.lines < 3
-		|| game_cp->m_data.lines == 0)
+	game_cp->m_data.lines = ft_count_lines(fd);
+	if (game_cp->m_data.lines < 3)
 		ft_exit_program(game_cp, -3);
+	fd = open (map_name, O_RDONLY);
+	if (fd == -1)
+		ft_exit_program(game_cp, 2);
 	ft_read_and_stock(fd, game_cp);
 	return (close (fd), 1);
 }

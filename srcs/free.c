@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 13:45:36 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/23 22:17:40 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/24 11:32:00 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,13 @@ void	ft_free_map(char ***matrix)
 void	ft_free_dying_frames(t_game_ctl *game_cp)
 {
 	int		i;
-	
+
 	i = 0;
 	while (i < NUM_DIE_FRAMES)
 	{
 		if (game_cp->g_objs.p_die_frames[i])
-			mlx_destroy_image(game_cp->mlx_ptr, game_cp->g_objs.p_die_frames[i]);
+			mlx_destroy_image(game_cp->mlx_ptr,
+				game_cp->g_objs.p_die_frames[i]);
 		i++;
 	}
 }

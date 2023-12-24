@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 11:01:39 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/24 00:53:37 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/24 11:42:32 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	main(int argc, char **argv)
 	int				fd;
 	t_game_ctl		game_cp;
 
-	// atexit(a);
+	atexit(a);
 	ft_panel_init(&game_cp);
 	ft_die_panel_init(&game_cp);
 	if (argc != 2)

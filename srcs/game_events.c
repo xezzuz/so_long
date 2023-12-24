@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 20:50:19 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/24 00:13:52 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/24 11:13:56 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ int	ft_key_action(int key, t_game_ctl *game_cp)
 {
 	static int	i = 1;
 
-	if (key == UP)
+	if (key == UP || key == W)
 		i = ft_move_up(game_cp, i);
-	else if (key == DOWN)
+	else if (key == DOWN || key == S)
 		i = ft_move_down(game_cp, i);
-	else if (key == RIGHT)
+	else if (key == RIGHT || key == D)
 		i = ft_move_right(game_cp, i);
-	else if (key == LEFT)
+	else if (key == LEFT || key == A)
 		i = ft_move_left(game_cp, i);
 	else if (key == ESC)
 		ft_exit_program(game_cp, 105);

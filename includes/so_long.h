@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 11:25:16 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/23 23:45:05 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/24 11:12:37 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,26 @@
 # define BUFFER_SIZE 5
 # define NUM_DIE_FRAMES 11
 # define MAX_ENEMIES 6
+# define SQ 32
+
+//	OBJECTS
 # define WALL '1'
 # define FLOOR '0'
 # define PLAYER 'P'
 # define COLLECTIBLE 'C'
 # define EXIT 'E'
 # define GHOST 'G'
+
+//	KEYS
 # define LEFT 123
 # define RIGHT 124
 # define DOWN 125
 # define UP 126
 # define ESC 53
-# define SQ 32
+# define W 13
+# define A 0
+# define S 1
+# define D 2
 
 # include "mlx.h"
 # include <unistd.h>
@@ -124,7 +132,7 @@ int		main(int argc, char **argv);
 void	ft_panel_init(t_game_ctl *game_cp);
 int		ft_read_map(char *map_name, t_game_ctl *game_cp);
 int		ft_check_map_x(char *map_name);
-int		ft_count_lines(char *map_name);
+int		ft_count_lines(int	fd);
 int		ft_read_and_stock(int fd, t_game_ctl *game_cp);
 int		ft_is_valid_map(t_game_ctl *game_cp);
 int		ft_map_objs(t_game_ctl *game_cp);

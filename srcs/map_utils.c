@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 16:15:41 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/23 21:48:33 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/24 11:07:36 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	ft_map_dimensions(t_game_ctl *game_cp)
 	if (!ft_columns(game_cp))
 		return (0);
 	if (!ft_rows(game_cp))
+		return (0);
+	if (game_cp->m_data.lines != game_cp->m_data.matrix_rows)
 		return (0);
 	return (1);
 }
@@ -46,7 +48,7 @@ int	ft_rows(t_game_ctl *game_cp)
 	while (game_cp->m_data.matrix[i])
 	{
 		row_len = 0;
-		row_len = ft_strlen(game_cp->m_data.matrix[0]);
+		row_len = ft_strlen(game_cp->m_data.matrix[i]);
 		if (row_len != game_cp->m_data.matrix_columns)
 			return (game_cp->m_data.matrix_rows = 0, 0);
 		i++;

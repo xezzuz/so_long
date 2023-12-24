@@ -6,7 +6,7 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 17:02:01 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/23 23:26:02 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/24 11:36:42 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void	ft_fill_die_frames(t_game_ctl *game_cp)
 	ft_image_check(game_cp, &game_cp->g_objs.p_die_frames[7], "./txts/D8.xpm");
 	ft_image_check(game_cp, &game_cp->g_objs.p_die_frames[8], "./txts/D9.xpm");
 	ft_image_check(game_cp, &game_cp->g_objs.p_die_frames[9], "./txts/D10.xpm");
-	ft_image_check(game_cp, &game_cp->g_objs.p_die_frames[10], "./txts/D11.xpm");
+	ft_image_check(game_cp, &game_cp->g_objs.p_die_frames[10],
+		"./txts/D11.xpm");
 }
 
 void	ft_init_die_frames(t_game_ctl *game_cp)
