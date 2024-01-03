@@ -6,11 +6,11 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 13:54:55 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/24 14:12:26 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/24 15:50:01 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
 int	ft_x_press(t_game_ctl *game_cp)
 {
@@ -19,8 +19,33 @@ int	ft_x_press(t_game_ctl *game_cp)
 	return (1);
 }
 
+void	ft_put_moves(t_game_ctl *game_cp)
+{
+	char	*moves;
+
+	moves = ft_itoa(++game_cp->game_objs_count.moves);
+	mlx_put_image_to_window(game_cp->mlx_ptr, game_cp->win_ptr,
+		game_cp->g_objs.wall, SQ * 2, 0);
+	mlx_put_image_to_window(game_cp->mlx_ptr, game_cp->win_ptr,
+		game_cp->g_objs.wall, SQ * 3, 0);
+	mlx_put_image_to_window(game_cp->mlx_ptr, game_cp->win_ptr,
+		game_cp->g_objs.wall, SQ * 4, 0);
+	mlx_string_put(game_cp->mlx_ptr, game_cp->win_ptr, 70, 4,
+		0xFFFFFF, moves);
+	free (moves);
+}
+
+void	ft_ghosts(t_game_ctl *game_cp)
+{
+	ft_init_die_frames(game_cp);
+	ft_animate_die(game_cp);
+	ft_exit_program(game_cp, -42);
+}
+
 int	ft_refresh_matrix_2(t_game_ctl *game_cp, int x_new, int y_new)
 {
+	if (game_cp->m_data.matrix[y_new][x_new] == GHOST)
+		ft_ghosts(game_cp);
 	if (game_cp->m_data.matrix[y_new][x_new] != EXIT)
 		game_cp->m_data.matrix[y_new][x_new] = PLAYER;
 	mlx_put_image_to_window(game_cp->mlx_ptr, game_cp->win_ptr,
@@ -45,9 +70,7 @@ int	ft_refresh_matrix_2(t_game_ctl *game_cp, int x_new, int y_new)
 
 int	ft_refresh_matrix(t_game_ctl *game_cp, int x_new, int y_new)
 {
-	if (game_cp->m_data.matrix[y_new][x_new] == WALL)
-		return (0);
-	ft_printf("Moves: %d\n", ++game_cp->game_objs_count.moves);
+	ft_put_moves(game_cp);
 	if (game_cp->m_data.matrix[y_new][x_new] == EXIT
 		&& game_cp->game_objs_count.collectibles == 0)
 		return (ft_exit_program(game_cp, 0));

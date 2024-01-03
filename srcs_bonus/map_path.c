@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 15:23:13 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/24 14:18:29 by nazouz           ###   ########.fr       */
+/*   Created: 2023/12/21 19:24:53 by nazouz            #+#    #+#             */
+/*   Updated: 2023/12/24 15:50:11 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
 void	get_player_exit_pos(t_game_ctl *game_cp)
 {
@@ -57,7 +57,7 @@ int	ft_check_e_c(char **matrix_cpy, t_game_ctl *game_cp)
 
 void	ft_flood_fill_e_c(char ***map, t_game_ctl *game_cp, int i, int j)
 {
-	if ((*map)[i][j] != '1' && (*map)[i][j] != 'F')
+	if ((*map)[i][j] != '1' && (*map)[i][j] != 'F' && (*map)[i][j] != 'G')
 	{
 		(*map)[i][j] = 'F';
 		ft_flood_fill_e_c(map, game_cp, i + 1, j);

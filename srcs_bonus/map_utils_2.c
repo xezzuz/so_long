@@ -6,11 +6,11 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 16:19:09 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/24 14:02:02 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/24 15:50:15 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
 int	ft_map_objs(t_game_ctl *game_cp)
 {
@@ -33,11 +33,14 @@ int	ft_count_objs(t_game_ctl *game_cp)
 			+= ft_count_chars(game_cp->m_data.matrix[i], EXIT);
 		game_cp->game_objs_count.player
 			+= ft_count_chars(game_cp->m_data.matrix[i], PLAYER);
+		game_cp->game_objs_count.enemies
+			+= ft_count_chars(game_cp->m_data.matrix[i], GHOST);
 		i++;
 	}
 	if (game_cp->game_objs_count.collectibles >= 1
 		&& game_cp->game_objs_count.exit == 1
-		&& game_cp->game_objs_count.player == 1)
+		&& game_cp->game_objs_count.player == 1
+		&& game_cp->game_objs_count.enemies <= 6)
 		return (1);
 	return (0);
 }
@@ -70,7 +73,7 @@ int	ft_strange_objs(t_game_ctl *game_cp)
 		{
 			c = game_cp->m_data.matrix[i][j];
 			if (c != PLAYER && c != FLOOR && c != WALL
-				&& c != EXIT && c != COLLECTIBLE)
+				&& c != EXIT && c != COLLECTIBLE && c != GHOST)
 				return (0);
 			j++;
 		}

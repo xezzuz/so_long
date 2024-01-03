@@ -6,11 +6,11 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 16:06:16 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/24 14:17:53 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/24 15:50:22 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
 int	ft_is_valid_map(t_game_ctl *game_cp)
 {

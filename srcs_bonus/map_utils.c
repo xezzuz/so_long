@@ -6,11 +6,11 @@
 /*   By: nazouz <nazouz@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 16:15:41 by nazouz            #+#    #+#             */
-/*   Updated: 2023/12/24 14:00:59 by nazouz           ###   ########.fr       */
+/*   Updated: 2023/12/24 15:50:17 by nazouz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
 int	ft_map_dimensions(t_game_ctl *game_cp)
 {
